@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    main:
+      allow-bean-definition-overriding:true:
+app:
+  rabbitmq:
+    queuename:  queue.demo
+    exchange: queue.exchangedemo
+    routingkey: queue.routingkeydemo
+health:
+  rabbit:
+    enabled:false:
