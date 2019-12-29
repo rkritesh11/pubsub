@@ -1,9 +1,6 @@
 package com.app.pubsub.config;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,17 +12,17 @@ public class RabbitMqConfig {
     RabbitMqConfigProperties rabbitMqConfigProperties;
 
     @Bean
-    public Queue queue() {
-        return new Queue(rabbitMqConfigProperties.getQueueName(), true);
+    public Queue autoDeleteQueue() {
+        return new AnonymousQueue();
     }
 
     @Bean
-    TopicExchange exchange() {
-        return new TopicExchange(rabbitMqConfigProperties.getExchange());
+    FanoutExchange exchange() {
+        return new FanoutExchange(rabbitMqConfigProperties.getExchange());
     }
 
     @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(rabbitMqConfigProperties.getRoutingkey());
+    Binding binding(Queue autoDeleteQueue, FanoutExchange exchange) {
+        return BindingBuilder.bind(autoDeleteQueue).to(exchange);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-    @RabbitListener(queues = "${app.rabbitmq.queuename}")
+    @RabbitListener(queues = "#{autoDeleteQueue.name}")
     public void receiveMessage(Notification notification) {
         System.out.println("notification received" + notification.toString());
     }
