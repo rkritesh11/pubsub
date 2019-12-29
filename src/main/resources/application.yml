@@ -10,9 +10,9 @@ spring:
       allow-bean-definition-overriding:true:
 app:
   rabbitmq:
-    queuename:  queue.demo
-    exchange: queue.exchangedemo
-    routingkey: queue.routingkeydemo
+    queuename:  queue.fanout
+    exchange: queue.demofanoutmulti
+    routingkey: queue.demofanoutmultiKey
 health:
   rabbit:
     enabled:false:

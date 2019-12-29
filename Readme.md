@@ -26,4 +26,11 @@
 6) Run the JAR file in two terminal / cmd and pass to start the tomcat. This application can be started 
    as publisher and consumer using spring profiles
    - CONSUMER:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev,consumer --server.port=8080
-   - PUBLISHER:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=dev,publisher --server.port=8081
+   - PUBLISHER:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev,publisher --server.port=8081
+   
+8) Using postman publish message to the URL 
+       http://localhost:8081/sendNotification
+       BODY:
+       {
+       	"message": "Hello world 1"
+       }   
