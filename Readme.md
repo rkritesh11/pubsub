@@ -25,7 +25,8 @@
     - mvn package
 6) Run the JAR file in two terminal / cmd and pass to start the tomcat. This application can be started 
    as publisher and consumer using spring profiles
-   - CONSUMER:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev,consumer --server.port=8080
+   - CONSUMER 1:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev,consumer --server.port=8080
+   - CONSUMER 2:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev,consumer --server.port=8082
    - PUBLISHER:- java -jar target/pubsub-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev,publisher --server.port=8081
    
 8) Using postman publish message to the URL 
@@ -33,4 +34,5 @@
        BODY:
        {
        	"message": "Hello world 1"
-       }   
+       } 
+9) You can verify the message published is getting send to both the consumers as this is using fanout exchange.
