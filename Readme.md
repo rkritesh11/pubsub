@@ -35,4 +35,4 @@
        {
        	"message": "Hello world 1"
        } 
-9) You can verify the message published is getting send to both the consumers as this is using fanout exchange.
+9) You can verify the message published is getting send to both the consumers(CONSUMER 1 & CONSUMER2) as this is using fanout exchange.
